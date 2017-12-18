@@ -1,15 +1,11 @@
 {
-  "name": "multi-hash",
-  "version": "0.1.1",
-  "description": "Multi-hash encoder/decoder",
+  "name": "@digix/multi-hash",
+  "version": "0.0.2",
+  "description": "Digix Fork of Multi-hash encoder/decoder",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
     "lint": "jshint index.js && jshint test/*.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tinybike/multi-hash.git"
   },
   "keywords": [
     "IPFS",
@@ -18,12 +14,7 @@
     "base58",
     "sha256"
   ],
-  "author": "Jack Peterson <jack@tinybike.net>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/tinybike/multi-hash/issues"
-  },
-  "homepage": "https://github.com/tinybike/multi-hash#readme",
   "dependencies": {
     "bs58": "^3.0.0"
   },

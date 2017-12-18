@@ -1,8 +1,3 @@
-/**
- * Multi-hash encoder/decoder.
- * @author Jack Peterson (jack@tinybike.net)
- */
-
 "use strict";
 
 var bs58 = require("bs58");
@@ -27,21 +22,21 @@ module.exports = {
             } else {
                 hex = "02" + hex;
             }
-            return "Qm" + bs58.encode(new Buffer(hex, "hex"));
+            return "Dg" + bs58.encode(new Buffer(hex, "hex"));
         }
         throw new Error("unsupported format: expected hex string");
     },
 
     /**
      * Remove multi-hash tag (assuming sha256, the IPFS default):
-     * 1. Remove leading two characters (Qm)
+     * 1. Remove leading two characters (Dg)
      * 2. Decode base58 string to 33 byte array
      * 3. Remove the leading byte, which is part of the hash tag
      * @param {string|Buffer} hash Base58-encoded sha256 hash digest.
      * @return {Buffer} 32-byte array with multihash tag removed.
      */
     decode: function (hash) {
-        if (hash && hash.constructor === String && hash.slice(0, 2) === "Qm") {
+        if (hash && hash.constructor === String && (hash.slice(0, 2) === "Dg" || hash.slice(0, 2) === "Qm")) {
             if (hash.length !== 46) {
                 throw new Error("length error: expected hash+tag length of 46");
             }
